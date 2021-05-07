@@ -1,6 +1,13 @@
+"""
+This function is designed to translate a given alphabet string to braille 
+(as a list of 1s & 0s which represent bumps and flats in the real world).
+This function also takes into consideration spaces and capital letters.
+"""
+
 def braille_translater(s):
 
 	braille_dict = {
+		# dictionary for conversion between alphabet and braille
 		"a": "100000",
 		"b": "110000",
 		"c": "100100",
@@ -33,7 +40,7 @@ def braille_translater(s):
 
 	output = []
 	for char in s:
-		if char in ("POIUYTREWQLKJHGFDSAMNBVCXZ"):
+		if char in ("ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
 			output.append(braille_dict["cap"])
 		output.append(braille_dict[char.lower()])
 	return "".join(output)

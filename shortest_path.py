@@ -1,7 +1,10 @@
-#given a matrix (of height and width between 2-20) with 0s
-#representing passable space and 1 representing unpassable
-#find the shortest pass considering any single 1 may change
-#to a 0
+# given a matrix (of height and width between 2-20) with 0s
+# representing passable space and 1 representing unpassable
+# find the shortest pass considering any single 1 may be 
+# changed to a 0.
+# 
+# This is accomplished through dijkstra's algorithm
+# 
 # [0, 0, 0, 0]
 # [1, 0, 0, 0]
 # [0, 0, 1, 0]
@@ -77,7 +80,6 @@ def solution(grid):
 					# would make the distanceto that spot smaller than an earlier 
 					# path to that spot. If so, it's distance is the distance to 
 					# the previous spot plus this spot's distance value.
-					
 					if w < width-1 and not grid[h][w+1] and (h,w+1) not in checked_spots:
 						grid_dis[h][w+1] = min(grid_dis[h][w+1], 
 												grid_dis[h][w] + 1)
@@ -119,11 +121,11 @@ def solution(grid):
 	return min(min_path)
 
 
-# print(solution(([[0, 0, 0, 0, 0, 0], 
-#                 [1, 1, 1, 1, 1, 0], 
-#                 [0, 0, 0, 0, 0, 0], 
-#                 [0, 1, 1, 1, 1, 1], 
-#                 [0, 1, 1, 1, 1, 1], 
-#                 [0, 0, 0, 0, 0, 0]])))
+print(solution(([[0, 0, 0, 0, 0, 0], 
+                [1, 1, 1, 1, 1, 0], 
+                [0, 0, 0, 0, 0, 0], 
+                [0, 1, 1, 1, 1, 1], 
+                [0, 1, 1, 1, 1, 1], 
+                [0, 0, 0, 0, 0, 0]])))
 
 	

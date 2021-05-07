@@ -5,38 +5,31 @@
 
 def solution(n, b):
 
-	# empty list of z values that have gone through the algorithm
+	# List of id values that have gone through the algorithm.
+	# If the next id is already in the list, we have found
+	# our loop starting point
 	
 	id_values = []
 
-	#define the algorithm
-
 	def chores(n, b):
-
-		# this id (z) added to list of ids used
+		# define our algorithm
 		
-		id_values.append(n)
+		id_values.append(n)  # add n to id list
 		
-		# length of id in base b
-		
-		k = len(n)
+		k = len(n)	# length of id in base b
 
-		# id values turned to string and sorted
-
+		# id values turned to string so digits can be sorted
 		pre_y = sorted(n)
 		pre_x = pre_y[::-1]
 
-		# x and y turned back to ints, but of base 10 
-
+		# x and y turned back to ints, but of base b 
 		x = int("".join(pre_x), b)
 		y = int("".join(pre_y), b)
 
-		# z calculated
-		
+		# difference "z" is calculated in base 10
 		z = x - y 	
 
 		# z converted to base b
-
 		i = k-1	
 		z_b =[]	
 		while i >=0:
@@ -47,16 +40,14 @@ def solution(n, b):
 			i -= 1
 		z = "".join(z_b)
 
-		#leading zeroes added back to z if necessary
-
-		z = str(z).zfill(k)
-
-		# recursive call to find next id
+		z = str(z).zfill(k) #leading zeroes added back to z if necessary
 
 		if z in id_values:	
+			# if z already in id list, find lenth of loop
 			loop_size = (len(id_values) - id_values.index(z))
 			return loop_size
 		else:
+			# recursive call for next id
 			return chores(z,b)
 		
 	return chores(n,b)
