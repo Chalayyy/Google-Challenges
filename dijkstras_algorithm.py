@@ -1,4 +1,16 @@
-#given a list of lists, find the shortest path from top left to bottom right
+"""
+The problem:
+Given an w x h matrix (as a list of lists), find the shortest path from [0][0] to [w-1][h-1]
+
+The solution:
+Use Dijkstra's Algorithm:
+1. From the starting point, assume the distance to every other point infinite.
+2. Calculate the total distance from the start to all points adjacent to the start.
+3. Change the distance to the new calculated distance if it is lower than the previous value.
+4. Select the smallest distance available as the new start point.
+5. Repeat steps 2-5 until end condition met (the bottom right value reached)
+"""
+
 
 def solution(grid):
 
@@ -40,7 +52,7 @@ def solution(grid):
 		down = float("inf")
 
 		# if a spot is available in a direction, check if moving there 
-		# would make the distanceto that spot smaller than an earlier 
+		# would make the distance to that spot smaller than an earlier 
 		# path to that spot. If so, it's distance is the distance to 
 		# the previous spot plus this spot's distance value.
 
@@ -67,29 +79,20 @@ def solution(grid):
 		# move to the spot of the smallest path
 		if right == min(left, right, up, down):
 			w+=1
-
 		elif down == min(left, right, up, down):
 			h+=1
-
 		elif up == min(left, right, up, down):
 			h-=1
-
 		elif left == min(left, right, up, down):
 			w-=1
-		
 
 		print("Grid distances: ")
 		for x in range(0, height):
 			print(grid_dis[x])
 
-
-
-		
+# Example: 	
 # solution(([1,2,3,4,5],
 # 		  [3,5,2,7,8], 
 # 		  [4,7,2,0,4], 
 # 		  [7,3,7,2,0],
 # 		  [10,6,13,6,1]))
-
-
-	
