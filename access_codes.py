@@ -1,12 +1,16 @@
 """
+The problem: 
 This code is designed to take a list (size 2-2000) of positive integers l (values 1-999999)
 and counts the number of "lucky triples" (li, lj, lk) where li is a factor of lj which is a factor of lk 
 where the list indices meet the requirement i < j < k. 
-We find the factors (and number of factors) of each value in the list has as we progress through the list
-For each factor found, we add the number of factors it has to our number of lucky triples.
-For example, suppose we have [1,2,3,4,5,6,7,8,9,10,11,12] and we are on the value 12.
-We add the number of non-self factors of 1,2,3,4,& 6 (0+1+1+2+3 = 7) to our lucky triple count
-This is because if j is a factor of k, then any factor of j will create a lucky triple with j and k
+
+The solution:
+For each value in the list, we find which (and how many) previous values are a factor of that value. 
+The number of lucly triples is the sum of the number of factors each factor has.
+
+For example, suppose we have the list [1,2,4,5,6,7,11,12] and we are on the value 12, which has the previous
+values 1,2,4,6 as factors. We add the number of previous value factors that 1,2,4,6 each have (0+1+2+2 = 5) 
+to our lucky triple count. This is because if 4 is a factor of 12, then any factor of 4 will create a lucky triple with 4 and 12
 """
 
 
