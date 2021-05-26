@@ -1,17 +1,17 @@
-# given a matrix (of height and width between 2-20) with 0s
-# representing passable space and 1 representing unpassable
-# find the shortest pass considering any single 1 may be 
-# changed to a 0.
-# 
-# This is accomplished through dijkstra's algorithm
-# 
-# [0, 0, 0, 0]
-# [1, 0, 0, 0]
-# [0, 0, 1, 0]
-# [0, 1, 1, 1]
-# [0, 0, 1, 0]
-# [1, 1, 1, 0]
-# 
+"""
+The Problem: 
+Given a matrix (of height and width between 2-20) with 0's
+representing passable space and 1's representing unpassable,
+find the shortest pass from the start to finish (top left to bottom right)
+considering any single 1 may be changed to a 0.
+
+The Solution:
+This is accomplished through Dijkstra's algorithm (assume infinite distance to a
+spot until calculated otherwise).
+In each case, a different 1 is changed to a 0. Whichever case presents the shortest
+path is the solution. 
+"""
+
 
 def solution(grid):
 
@@ -117,15 +117,12 @@ def solution(grid):
 						w-=1
 
 				grid[a][b] = original_value
-
 	return min(min_path)
 
 
-print(solution(([[0, 0, 0, 0, 0, 0], 
-                [1, 1, 1, 1, 1, 0], 
-                [0, 0, 0, 0, 0, 0], 
-                [0, 1, 1, 1, 1, 1], 
-                [0, 1, 1, 1, 1, 1], 
-                [0, 0, 0, 0, 0, 0]])))
-
-	
+# print(solution(([[0, 0, 0, 0, 0, 0], 
+#                 [1, 1, 1, 1, 1, 0], 
+#                 [0, 0, 0, 0, 0, 0], 
+#                 [0, 1, 1, 1, 1, 1], 
+#                 [0, 1, 1, 1, 1, 1], 
+#                 [0, 0, 0, 0, 0, 0]])))
