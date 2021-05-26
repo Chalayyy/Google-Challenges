@@ -1,15 +1,27 @@
-# an algorithm that given an integer n in base b, will take the digits
-# in ascending and descending order, subtract them, and use that as
-# the next id. Will find the length of a loop when ids start repeating
-# in a cycle
+"""
+The problem:
+Given an integer n in base b, two new values can be created by taking the digits 
+of n in ascending and descending order. The difference between these two values 
+is used to produce the next n. Find the length of the loop when the values of n 
+repeat in a cycle. 
+
+The solution: 
+Because any value n will create the same two values when its digits are organized,
+once a value n appears again, a cycle is inevitable. The number of values between the 
+first n and the first time n reappears (including one of the n's) gives the length of 
+the loop.
+
+Create a list that contains all n values and check if it's already in the list when
+adding a new n value. 
+""" 
+
 
 def solution(n, b):
-
-	# List of id values that have gone through the algorithm.
-	# If the next id is already in the list, we have found
-	# our loop starting point
 	
 	id_values = []
+		# List of id values that have gone through the algorithm.
+		# If the next id is already in the list, we have found
+		# our loop starting point
 
 	def chores(n, b):
 		# define our algorithm
