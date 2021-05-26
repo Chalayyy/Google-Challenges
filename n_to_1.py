@@ -1,13 +1,19 @@
 """
-solution is designed to find the shortest possible path from a
-natural number (a positive integer) to 1 only by using one of these options:
-- Divide by two (done anytime the value is even)
-- Subtract 1 (if it is 3 or subtracting 1 would make it divisible by 4)
-- Add 1 (any other case)
+The Problem:
+Given a natural number (a positive intger), and the option to add 1, 
+subtract 1, or divide by 2 if it's even, find the fewest number of steps
+required to bring the number to 1.
 
-Can handle extremely large values (~10,000 digits long)
+The Solution:
+- Divide by 2 whenever the value is even. (Most efficient option)
+- Subtract 1 if the number is 3 or it would make it divisible by 4
+(since division is most efficient, and only one of two consecutive 
+even numbers can both be divisible by four, shift towards the one that is)
+- Add 1 in any other case.
 
-showsolution will show the steps taken to go from the value to 1
+This solution can handle extremely large values (~10,000 digits long)
+
+showsolution() will show the steps taken to go from the number to 1
 """
 
 
@@ -68,9 +74,9 @@ def showsolution(n):
 	return steps
 
 
-x = "9"*500
-print(solution(x))
-print(showsolution(x))
+# x = "9"*500
+# print(solution(x))
+# print(showsolution(x))
 
 
 
