@@ -1,13 +1,17 @@
 """
-This function compares the time to exectute two similar methods for 
+This function compares the time to execute two codes for 
 determining the shortest number of steps to get from any natural 
 number (positive whole number) to 1 by only dividing by 2, adding 1, 
-or subtracting 1. solution1 is generally faster for terms with more than ~38 digits
-Includes edits for 2.7
+or subtracting 1. 
+
+solution1() is generally faster for terms with more than ~38 digits.
+solution2() is generally faster for terms with less than ~38 digits.
+
+Includes edits for python2.7 vs 3
 """
 
-from time import process_time_ns
-# import timeit # python2.7
+from time import process_time_ns  # python3
+# import timeit  f# python2.7
 
 def solution1(n): 
 	
@@ -64,17 +68,17 @@ def solution2(n):
 	return solution3(n)
 
 
+# python3
+# x = "9"*38
+# start1 = process_time_ns()
+# print(solution1(x))
+# end1 = process_time_ns()
+# print(f"Time1: {end1-start1}")
 
-x = "9"*38
-start1 = process_time_ns()
-print(solution1(x))
-end1 = process_time_ns()
-print(f"Time1: {end1-start1}")
-
-start2 = process_time_ns()
-print(solution2(x))
-end2 = process_time_ns()
-print(f"Time2: {end2-start2}")
+# start2 = process_time_ns()
+# print(solution2(x))
+# end2 = process_time_ns()
+# print(f"Time2: {end2-start2}")
 
 # python2.7
 # start = timeit.default_timer()
