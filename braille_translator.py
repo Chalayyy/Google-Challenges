@@ -1,7 +1,13 @@
 """
-This function is designed to translate a given alphabet string to braille 
-(as a list of 1s & 0s which represent bumps and flats in the real world).
-This function also takes into consideration spaces and capital letters.
+The problem:
+Given an alphabet string, convert it into braille (represented by a 
+6 digit string of 1's and 0's representing real world bumps and flats, 
+respectively). Capital letters and spaces should be taken into consideration.
+
+The solution:
+Create a dictionary between each letter (and space and capitalization) 
+and its braille counterpart. For each value in a string, use the dictionary 
+to output its braille counterpart (adding the capitalization when necessary).
 """
 
 def braille_translater(s):
