@@ -139,4 +139,3 @@ def solution(time, time_limit):
 	max_path = ideal_path()
 	
 	return [x for x in max_path]
-		
