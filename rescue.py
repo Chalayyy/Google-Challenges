@@ -1,20 +1,26 @@
 """
-The problem: 
-Given a square matrix, with values indicating the time to get from the row's starting point (the diagonals)
-to the row with the same index as the value (the third value in a row takes you to the third row), find the greatest number of unique columns that 
-can be visited, starting from the first row and column and ending with the last column, within a given time limit. 
-Some values may be negative. Any spot may be revisited.
+The problem: Given a square matrix, with values indicating the time to
+get from the row's starting point (the diagonals) to the row with the
+same index as the value (the third value in a row takes you to the
+third row), find the greatest number of unique columns that can be
+visited, starting from the first row and column and ending with the
+last column, within a given time limit. Some values may be negative.
+Any spot may be revisited.
 
-(You are rescuing bunnies which are at each column beyond the 0th and before the last.
-A 5x5 matrix would have 3 bunnies: bunny 0, bunny 1, bunny 2. The last column represents
-the exit.)
+(You are rescuing bunnies which are at each column beyond the 0th and
+before the last. A 5x5 matrix would have 3 bunnies: bunny 0, bunny 1,
+bunny 2. The last column represents the exit.)
 
-The solution:
-Firstly, optimize the matrix. Find the shortest route to each spot from a row's starting point using the Bellman Ford algorithm (that is,
-(if distance from row A to row B to row C is shorter than row A to row C, then row A to row C is modified to the smaller value). Repeat until no more changes are made.
-From here, check each different permutation of paths that obeys the time limit and keep track of how many columns are visited in each one. 
-If one path has more visited columns the the previous most, it becomes the ideal path unless another path overtakes it. 
-Return all the columns between the 0th and last column that were visited. 
+The solution: Firstly, optimize the matrix. Find the shortest route to
+each spot from a row's starting point using the Bellman Ford algorithm
+(that is,(if distance from row A to row B to row C is shorter than row
+A to row C, then row A to row C is modified to the smaller value).
+Repeat until no more changes are made. From here, check each different
+permutation of paths that obeys the time limit and keep track of how
+many columns are visited in each one. If one path has more visited
+columns the the previous most, it becomes the ideal path unless another
+path overtakes it. Return all the columns between the 0th and last
+column that were visited. 
 """
 
 def solution(time, time_limit):
